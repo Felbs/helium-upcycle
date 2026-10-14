@@ -1,0 +1,18 @@
+## gateway-rs settings for an upcycled hotspot (data-only).
+## Start from the settings.toml shipped with gateway-rs and change only these lines.
+
+# Where the hotspot's identity key lives. Use ONE of:
+keypair = "tpm://esys/0x81000031"          # FreedomFi: key kept in the box's TPM 2.0
+# keypair = "ecc://i2c-1:96?slot=0"        # Nebra: ATECC608 crypto chip on I2C bus 1
+
+# The packet forwarder (via listener.py) talks Semtech UDP to this address
+listen = "127.0.0.1:1680"
+
+region = "US915"
+
+[poc]
+# Proof-of-Coverage was retired by HIP 149: no beacons, no witness rewards.
+# Keep it off so the box doesn't transmit for nothing; data transfer still works.
+disable = true
+
+# [config], [router] and the uri lines: keep the defaults from the gateway-rs release.

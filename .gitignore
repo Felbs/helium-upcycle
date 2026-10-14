@@ -1,0 +1,5 @@
+_raw/
+__pycache__/
+*.pyc
+*.jsonl
+*.key

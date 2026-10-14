@@ -1,0 +1,16 @@
+[Unit]
+Description=Helium IoT gateway (gateway-rs, data-only)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=helium
+# FreedomFi (TPM key): the tss group and this TCTI line. Nebra (ECC608): use SupplementaryGroups=i2c instead.
+SupplementaryGroups=tss
+Environment=TCTI=device:/dev/tpmrm0
+ExecStart=/opt/helium/helium_gateway -c /etc/helium_gateway/settings.toml server
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target

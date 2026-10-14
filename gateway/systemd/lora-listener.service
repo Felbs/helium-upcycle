@@ -1,0 +1,12 @@
+[Unit]
+Description=LoRa relay: forwarder -> Helium + The Things Network, packet log, local TX door
+
+[Service]
+User=lora
+Environment=LORA_LOG=/var/lib/lora/packets.jsonl
+Environment=TTN_SERVER=nam1.cloud.thethings.network:1700
+ExecStart=/usr/bin/python3 -u /opt/helium-upcycle/gateway/listener.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

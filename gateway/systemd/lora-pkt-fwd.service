@@ -1,0 +1,15 @@
+[Unit]
+Description=SX1302 packet forwarder (Semtech UDP -> listener.py)
+After=lora-listener.service
+Wants=lora-listener.service
+
+[Service]
+User=lora
+WorkingDirectory=/opt/sx1302_hal/packet_forwarder
+# stdbuf: otherwise the forwarder's statistics never reach the journal
+ExecStart=/usr/bin/stdbuf -oL -eL /opt/sx1302_hal/packet_forwarder/lora_pkt_fwd -c global_conf.json
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

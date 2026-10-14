@@ -1,0 +1,10 @@
+[Unit]
+Description=LoRa command link (Heltec modem on USB)
+
+[Service]
+ExecStart=/usr/bin/python3 -u %h/helium-upcycle/messaging/loralink.py daemon
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target
