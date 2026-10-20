@@ -47,7 +47,7 @@ Do not clear the TPM or reflash the key chip. Everything in this guide leaves th
 4. [Join The Things Network too](docs/04-join-the-things-network.md) — one radio, two networks
 5. [Message yourself with a Heltec V3](docs/05-message-yourself-heltec.md) — the signed command link
 6. [Range: what to expect](docs/06-range-what-to-expect.md) — two drive tests, real numbers
-7. [The concentrator as a Z-Wave radio](docs/07-z-wave-gateway.md) — receive and transmit Z-Wave frames with the hotspot's own SX1301
+7. [The concentrator as a Z-Wave radio](docs/07-z-wave-gateway.md) — receive and transmit Z-Wave frames with the hotspot's own concentrator; add your own thermostat to it and read and set its settings, step by step
 
 ## Repository
 ```
