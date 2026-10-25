@@ -48,6 +48,7 @@ Do not clear the TPM or reflash the key chip. Everything in this guide leaves th
 5. [Message yourself with a Heltec V3](docs/05-message-yourself-heltec.md) — the signed command link
 6. [Range: what to expect](docs/06-range-what-to-expect.md) — two drive tests, real numbers
 7. [The concentrator as a Z-Wave radio](docs/07-z-wave-gateway.md) — receive and transmit Z-Wave frames with the hotspot's own concentrator; add your own thermostat to it and read and set its settings, step by step
+8. [The concentrator as a weather-station receiver](docs/08-weather-station-receiver.md) — read a 915 MHz backyard weather station (Fine Offset WH65B family) all day with the hotspot's FSK modem, listen-only; build, find your station, log it as a service
 
 ## Repository
 ```
@@ -55,6 +56,8 @@ gateway/      listener.py (relay + log + TX door), forwarder config template, He
               systemd units, tx_test.py (send a known packet)
 messaging/    lcore.py (frame format, HMAC signing, replay protection), loralink.py (laptop),
               loragw.py (gateway), drive_mode.sh, heltec/ (MicroPython: modem, range test)
+weather/      wxrx1302.c (listen-only FSK receiver for SX1302 cards), decode_wh65.py, wxlocal_log.py
+              (JSONL logger), build.sh, systemd/wx-logger@.service
 docs/         the guide
 ```
 

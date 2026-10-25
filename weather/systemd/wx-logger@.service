@@ -1,0 +1,15 @@
+[Unit]
+Description=Weather station logger on the LoRa concentrator (listen-only, 915 MHz 2-FSK)
+# The concentrator is one radio: the LoRa packet forwarder must be off while this runs.
+Conflicts=lora-pkt-fwd.service
+After=network-online.target
+
+[Service]
+User=%i
+WorkingDirectory=/opt/helium-upcycle/weather
+ExecStart=/usr/bin/python3 -I /opt/helium-upcycle/weather/wxlocal_log.py
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
